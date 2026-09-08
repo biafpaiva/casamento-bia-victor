@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bia & Victor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
+:root{--o:#4f5b3d;--c:#f7f4eb;--p:#fffdf8;--l:#d8d4c8;--t:#3d4535}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--c);color:var(--t);font-family:"DM Sans",sans-serif}.wrap{max-width:900px;margin:auto;background:var(--p)}
+.hero{padding:20px;text-align:center}.hero img{width:min(680px,100%);display:block;margin:auto}
+nav{position:sticky;top:0;z-index:5;text-align:center;background:#f7f4ebf5;border-block:1px solid var(--l);padding:10px}nav a{color:var(--o);text-decoration:none;font-size:11px;letter-spacing:1px;margin:0 8px}
+section{max-width:760px;margin:auto;padding:70px 22px}h1,h2{font-family:"Cormorant Garamond",serif;color:var(--o);font-weight:500;text-align:center;letter-spacing:2px}h2{font-size:42px;margin:0 0 8px}.sub{text-align:center;color:#73786c;font-size:14px;margin-bottom:28px}
+.card{border:1px solid var(--l);border-radius:13px;background:#fffef9;padding:27px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:600;color:var(--o);margin-bottom:5px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbc7bc;border-radius:7px;background:#fffefa;font:inherit;color:var(--t)}textarea{min-height:85px}button{width:100%;margin-top:17px;padding:13px;border:0;border-radius:7px;background:var(--o);color:white;font-weight:600;cursor:pointer}.ok{text-align:center;color:var(--o);font-weight:600;margin-top:12px;min-height:18px}
+.notice{background:#f2f0e7;border-left:3px solid var(--o);padding:15px 17px;font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.4;margin-bottom:18px}.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+.gift{height:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.gift h3{height:72px;display:flex;align-items:center;justify-content:center;margin:0 0 16px;width:100%}
+.gift p{margin:0 0 12px;min-height:74px;display:flex;align-items:center;justify-content:center;width:100%}
+.gift .pixkey{margin-top:auto}
+.gift .copy{margin-top:8px}.gift{border:1px solid var(--l);border-radius:11px;padding:22px;text-align:center}.gift h3{font:500 25px "Cormorant Garamond",serif;color:var(--o);margin:0 0 16px}.gift p{font-size:13px;color:#666;line-height:1.5}.pix{text-align:center;border:1px dashed var(--o);border-radius:11px;padding:23px;margin-top:15px}.pixkey{font-family:monospace;background:#eeece4;padding:9px 13px;display:inline-block;border-radius:6px}.copy{width:auto;margin-top:8px;padding:9px 14px;font-size:12px}.footer{text-align:center;border-top:1px solid var(--l);padding:60px 20px}.footer b{font:500 52px "Cormorant Garamond",serif;color:var(--o)}
+.admin{display:none;background:#f2f0e8;max-width:none;padding:35px 22px}.admin table{width:100%;border-collapse:collapse;font-size:11px;background:white}.admin th,.admin td{border:1px solid #ddd8ce;padding:7px;text-align:left}.admin th{background:#e9e7dd;color:var(--o)}.export{max-width:280px}
+@media(max-width:650px){.grid,.gifts{grid-template-columns:1fr}.gift h3{height:auto;min-height:60px}.gift p{min-height:0}.full{grid-column:auto}section{padding:55px 18px}h2{font-size:34px}}
+
+.gift:last-child p{
+  font-size:15px;
+  line-height:1.65;
+}
+
+.gift-text{
+  width:100%;
+  display:block;
+}
+.gift-text p{
+  width:100%;
+  display:block;
+  min-height:0;
+  margin:0 0 18px;
+}
+.gift-text i{
+  display:inline;
+}
+</style></head><body><div class="wrap">
+
+<div class="hero"><img src="convite.png" alt="Bia e Victor — Marque a Data"></div>
+<nav><a href="#rsvp">CONFIRMAR PRESENÇA</a><a href="#presentes">LISTA DE PRESENTES</a></nav>
+
+<section id="rsvp"><h2>Confirme sua presença</h2><div class="sub">Seu lugar já está quase reservado no nosso coração — agora falta só confirmar! ♡</div>
+<div class="card"><form id="form"><div class="grid">
+<div><label>Nome completo *</label><input id="nome" required></div>
+<div><label>Você estará presente? *</label><select id="presenca" required><option value="">Selecione</option><option>Sim, estarei presente!</option><option>Não poderei comparecer</option></select></div>
+<div><label>Quantidade de pessoas *</label><select id="qtd"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+<div><label>WhatsApp</label><input id="whats" placeholder="(31) 99999-9999"></div>
+<div class="full"><label>Nome dos acompanhantes</label><input id="acom"></div>
+
+</div><button>CONFIRMAR PRESENÇA ♡</button><div class="ok" id="ok"></div></form></div>
+</section>
+
+<section id="presentes"><h2>Lista de presentes</h2><div class="sub">O melhor presente? Você lá com a gente! ♡</div>
+<div class="notice">Queremos fugir de uma lista tradicional. <b>Use a criatividade e escolha o que você quiser nos dar!</b> Pode ser algo para a nossa casa, para a lua de mel, algo simbólico ou simplesmente uma surpresa. O carinho é o que importa.</div>
+<div class="gifts">
+<div class="gift">
+  <h3>♡ Quer inventar moda?</h3>
+  <div class="gift-text">
+    <p>Aqui vale a criatividade! Escolha algo que tenha a nossa cara, faça uma surpresa ou simplesmente dê aquele presente que você olha e pensa: <i>“isso é muito a Bia e o Victor”</i>.</p>
+    <p><b>Não existe presente certo — a graça é surpreender!</b></p>
+  </div>
+</div>
+<div class="gift">
+  <h3>✦ Não quer pensar muito?</h3>
+  <p>
+    A gente entende! Se a inspiração resolveu tirar férias,
+    é só usar a nossa chave Pix e deixar a criatividade por nossa conta.
+  </p>
+  <div class="pixkey" id="pix">SUA-CHAVE-PIX-AQUI</div><br>
+  <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('pix').innerText);this.innerText='COPIADO ♡'">
+    PEGAR A CHAVE PIX
+  </button>
+</div>
+
+<div class="gift">
+  <h3>♡ Não consegue dar um presente?</h3>
+  <p>
+    Então venha! Aproveite a festa com a gente.
+  </p>
+  <p><b>Sua presença já conta — e conta muito.</b></p>
+</div>
+</div>
+</section>
+
+<section><h2>Obrigado por fazer parte disso</h2><div class="sub">Estamos muito felizes em compartilhar esse momento com as pessoas que amamos.</div></section>
+
+<section class="admin" id="admin"><h2>Lista de presença</h2><p>As respostas deste dispositivo podem ser exportadas para Excel.</p><button class="export" onclick="excel()">BAIXAR EXCEL</button><div style="overflow:auto;margin-top:20px"><table><thead><tr><th>Nome</th><th>Presença</th><th>Pessoas</th><th>Acompanhantes</th><th>WhatsApp</th></tr></thead><tbody id="tbody"></tbody></table></div></section>
+
+<footer class="footer"><b>Bia & Victor</b><p>19 de dezembro de 2026 · Belo Horizonte, Minas Gerais</p>♡</footer>
+</div>
+
+<script>
+const KEY='rsvp_bia_victor_2026';
+
+// URL do Google Apps Script que recebe as confirmações
+const URL_PLANILHA='https://script.google.com/macros/s/AKfycbz0Cb-09dX6W_madzY51NbBCUKWldoxEgHDh5_TmY7fQPEm3PUPpSl6snmbM36EWLs6wg/exec';
+
+const $=id=>document.getElementById(id);
+
+function data(){
+  return JSON.parse(localStorage.getItem(KEY)||'[]');
+}
+
+function render(){
+  $('tbody').innerHTML=data().map(x=>
+    '<tr>'+[x.nome,x.presenca,x.qtd,x.acom,x.whats]
+    .map(v=>'<td>'+String(v||'—').replace(/</g,'&lt;')+'</td>')
+    .join('')+'</tr>'
+  ).join('');
+}
+
+$('form').onsubmit=async e=>{
+  e.preventDefault();
+
+  const botao=e.target.querySelector('button[type="submit"], button:not(.copy)');
+  if(botao){
+    botao.disabled=true;
+    botao.innerText='ENVIANDO...';
+  }
+
+  const dados={
+    nome:$('nome').value.trim(),
+    presenca:$('presenca').value,
+    qtd:$('qtd').value,
+    acom:$('acom').value.trim(),
+    whats:$('whats').value.trim()
+  };
+
+  // Mantém uma cópia local para o painel/admin do site.
+  let d=data();
+  d.push({...dados,em:new Date().toLocaleString('pt-BR')});
+  localStorage.setItem(KEY,JSON.stringify(d));
+  render();
+
+  try{
+    // POST simples (sem preflight CORS).
+    // O Apps Script já configurado recebe este JSON em e.postData.contents.
+    await fetch(URL_PLANILHA,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{
+        'Content-Type':'text/plain;charset=UTF-8'
+      },
+      body:JSON.stringify(dados)
+    });
+
+    $('ok').innerText='Presença registrada com carinho! Obrigado ♡';
+    e.target.reset();
+  }catch(erro){
+    // A cópia local permanece salva caso haja uma falha de rede.
+    $('ok').innerText='Salvamos sua resposta neste dispositivo, mas houve um problema ao enviar para a lista. Tente novamente.';
+    console.error(erro);
+  }finally{
+    if(botao){
+      botao.disabled=false;
+      botao.innerText='CONFIRMAR PRESENÇA ♡';
+    }
+  }
+};
+
+function excel(){
+  let d=data();
+  if(!d.length)return alert('Ainda não há confirmações.');
+  let s='Nome;Presença;Quantidade;Acompanhantes;WhatsApp;Data\n'+
+    d.map(x=>[x.nome,x.presenca,x.qtd,x.acom,x.whats,x.em]
+    .map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(';')).join('\n');
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\ufeff'+s],{type:'text/csv;charset=utf-8'}));
+  a.download='Lista_de_Presenca_Bia_e_Victor.csv';
+  a.click();
+}
+
+render();
+if(location.hash==='#admin')$('admin').style.display='block';
+</script></body></html>
